@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+  <h2>Search Evidence Text</h2>
+  <form method="get" action="{{ url_for('search') }}" class="form">
+    <div class="form-row">
+      <input type="text" name="q" placeholder="Search query" value="{{ q }}" />
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn primary">Search</button>
+    </div>
+  </form>
+
+  {% if q %}
+    <h3>Results {% if using_fts %}(FTS){% endif %}</h3>
+    {% if results and results|length > 0 %}
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Case</th>
+              <th>Evidence</th>
+              <th>Snippet</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for r in results %}
+            <tr>
+              <td>{{ r['case_no'] }}</td>
+              <td><a href="{{ url_for('evidence_detail', evidence_id=r['evidence_id']) }}">{{ r['original_filename'] }}</a></td>
+              <td>{{ r['snippet'] }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p>No matches</p>
+    {% endif %}
+  {% endif %}
+</section>
+{% endblock %}

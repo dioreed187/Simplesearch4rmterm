@@ -12,8 +12,12 @@
       <nav>
         <a href="{{ url_for('list_cases') }}">View Cases</a>
         <a href="{{ url_for('new_case_form') }}">New Case</a>
-        <a href="{{ url_for('export_csv') }}">Export CSV</a>
-        <a href="{{ url_for('export_json') }}">Export JSON</a>
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('tools_ioc') }}">IOC Tool</a>
+        <a href="{{ url_for('export_csv') }}">Export Cases CSV</a>
+        <a href="{{ url_for('export_json') }}">Export Cases JSON</a>
+        <a href="{{ url_for('export_evidence_csv') }}">Export Evidence CSV</a>
+        <a href="{{ url_for('export_iocs_csv') }}">Export IOCs CSV</a>
       </nav>
     </header>
 
