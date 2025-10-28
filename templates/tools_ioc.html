@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+  <h2>IOC Extractor (Offline)</h2>
+  <form method="post" enctype="multipart/form-data" class="form">
+    <div class="form-row">
+      <label for="text">Paste Text</label>
+      <textarea id="text" name="text" rows="5" placeholder="Paste email, logs, etc.">{{ input_text }}</textarea>
+    </div>
+    <div class="form-row">
+      <label for="file">Or Upload a File</label>
+      <input id="file" type="file" name="file" />
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn primary">Extract IOCs</button>
+    </div>
+  </form>
+
+  {% if extracted and extracted|length > 0 %}
+    <h3>Results ({{ extracted|length }})</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Value</th>
+            <th>Context</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in extracted %}
+          <tr>
+            <td>{{ i['ioc_type'] }}</td>
+            <td>{{ i['ioc_value'] }}</td>
+            <td>{{ i['context_excerpt'] }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

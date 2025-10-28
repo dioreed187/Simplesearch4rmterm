@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+  <section>
+    <h2>Cases</h2>
+    {% if cases and cases|length > 0 %}
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Case No</th>
+              <th>Investigator</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for c in cases %}
+              <tr>
+                <td>{{ c['case_no'] }}</td>
+                <td>{{ c['investigator'] }}</td>
+                <td>{{ c['case_date'] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p>No cases yet. <a href="{{ url_for('new_case_form') }}">Create one</a>.</p>
+    {% endif %}
+  </section>
+{% endblock %}

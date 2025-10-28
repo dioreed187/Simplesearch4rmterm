@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ABI Case Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Alabama ABI — Case Management</h1>
+      <nav>
+        <a href="{{ url_for('list_cases') }}">View Cases</a>
+        <a href="{{ url_for('new_case_form') }}">New Case</a>
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('tools_ioc') }}">IOC Tool</a>
+        <a href="{{ url_for('export_csv') }}">Export Cases CSV</a>
+        <a href="{{ url_for('export_json') }}">Export Cases JSON</a>
+        <a href="{{ url_for('export_evidence_csv') }}">Export Evidence CSV</a>
+        <a href="{{ url_for('export_iocs_csv') }}">Export IOCs CSV</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="flash {{ category }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="app-footer">
+      <small>Local-only. Data stored in <code>local_data/cases.db</code>.</small>
+    </footer>
+  </body>
+</html>

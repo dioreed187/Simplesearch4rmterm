@@ -1,0 +1,52 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.app-header {
+  background: #0f172a;
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-header h1 { font-size: 18px; margin: 0; }
+.app-header nav a {
+  color: #e2e8f0;
+  margin-left: 14px;
+  text-decoration: none;
+}
+.app-header nav a:hover { color: #fff; }
+
+.container { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
+
+.flashes { list-style: none; padding: 0; }
+.flash { padding: 10px 12px; border-radius: 6px; margin: 8px 0; }
+.flash.error { background: #fee2e2; color: #7f1d1d; }
+.flash.success { background: #dcfce7; color: #14532d; }
+
+.table-wrap { overflow-x: auto; background: white; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+
+ table { width: 100%; border-collapse: collapse; }
+ thead th { text-align: left; background: #f1f5f9; color: #0f172a; padding: 10px; font-weight: 600; }
+ tbody td { padding: 10px; border-top: 1px solid #e2e8f0; }
+
+.form { background: white; padding: 16px; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+.form-row { display: flex; flex-direction: column; margin-bottom: 12px; }
+.form-row label { font-weight: 600; margin-bottom: 6px; }
+.form-row input[type="text"], .form-row input[type="date"], .form-row input[type="file"], .form-row textarea {
+  padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff;
+}
+.form-row textarea { resize: vertical; }
+.form-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px; }
+.btn { padding: 10px 14px; border-radius: 6px; border: 1px solid transparent; cursor: pointer; text-decoration: none; display: inline-block; }
+.btn.primary { background: #0ea5e9; color: white; }
+.btn.primary:hover { background: #0284c7; }
+.btn.secondary { background: #e2e8f0; color: #0f172a; }
+.btn.secondary:hover { background: #cbd5e1; }
+
+.app-footer { text-align: center; color: #334155; padding: 24px 0 36px; }

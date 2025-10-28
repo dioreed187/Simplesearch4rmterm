@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+  <section>
+    <h2>New Case</h2>
+    <form method="post" action="{{ url_for('create_case') }}" class="form">
+      <div class="form-row">
+        <label for="case_no">Case No</label>
+        <input type="text" id="case_no" name="case_no" required />
+      </div>
+
+      <div class="form-row">
+        <label for="investigator">Investigator</label>
+        <input type="text" id="investigator" name="investigator" required />
+      </div>
+
+      <div class="form-row">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" value="{{ default_date }}" required />
+      </div>
+
+      <div class="form-actions">
+        <a class="btn secondary" href="{{ url_for('list_cases') }}">Cancel</a>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </section>
+{% endblock %}
